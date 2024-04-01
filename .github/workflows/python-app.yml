@@ -17,7 +17,7 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
-      
+
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +25,7 @@ jobs:
     - uses: 'google-github-actions/auth@v2'
       with:
         project_id: "advance-totem-416915"
-        workload_identity_provider: 'projects/103545298245/locations/global/workloadIdentityPools/my-workload-identity-pool/my-provider'
+        workload_identity_provider: 'projects/103545298245/locations/global/workloadIdentityPools/my-workload-identity-pool/providers/my-provider'
     
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
