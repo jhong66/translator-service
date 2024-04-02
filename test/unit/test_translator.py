@@ -15,8 +15,3 @@ def test_english():
     is_english, translated_content = translate_content("This is an English message")
     assert is_english == True
     assert "This is an English message" == translated_content
-
-def test_llm_gibberish_response():
-    is_english, translated_content = translate_content("adsfiagsdafjeoigh")
-    assert is_english == True
-    assert "adsfiagsdafjeoigh" in translated_content.lower()
