@@ -36,7 +36,21 @@ def get_language(post: str) -> str:
 def translate_content(content: str) -> tuple[bool, str]:
     if content == '':
         return True, content
-    if "english" in get_language(content).lower():
+
+    language = get_language(content)
+    translation = get_translation(content)
+
+    # Check for error response
+    error_message = "I'm not able to help with that"
+    if (not language
+        or not translation
+        or language.startswith(error_message)
+        or translation.startswith(error_message)
+        or language.startswith("Error")
+        or translation.startswith("Error")):
+        return (False, "")
+    
+    if "english" in language.lower():
         return True, content
     
-    return (False, get_translation(content))
+    return (False, translation)
